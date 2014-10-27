@@ -2,7 +2,7 @@
 #include "Transducer.hpp"
 
 void Alarm::check() {
-  double psiPressureValue = sensor->popNextPressurePsiValue();
+  double psiPressureValue = transducer->popNextPressurePsiValue();
 
   if (psiPressureValue < LOW_PRESSURE_THRESHOLD || HIGH_PRESSURE_THRESHOLD < psiPressureValue) {
     alarmOn = true;
@@ -15,11 +15,12 @@ bool Alarm::isAlarmOn() {
 
 Alarm::Alarm() {
   // TODO-smell-working-on: Depending on a concrete Sensor instance violates the DIP and OCP
-  sensor = new Sensor;
-  alarmOn = false;
+  Alarm(new Sensor);
 }
 
 Alarm::Alarm(Transducer *transducer) {
+  this->transducer = transducer;
+  alarmOn = false;
 }
 
 const double Alarm::LOW_PRESSURE_THRESHOLD = 17;
