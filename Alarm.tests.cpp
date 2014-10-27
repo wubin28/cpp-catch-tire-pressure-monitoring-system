@@ -13,3 +13,5 @@ TEST_CASE( "Characterization test for method Alarm.isAlarmOn()", "[Characterizat
   // Assert
   REQUIRE( alarm.isAlarmOn() );
 }
+
+// TODO-new-feature: the alarm will be off if a normal pressure value comes after an out of range one
