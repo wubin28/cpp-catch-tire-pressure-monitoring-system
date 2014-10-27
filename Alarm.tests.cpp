@@ -12,10 +12,10 @@ TEST_CASE( "the alarm will be on if the pressure value is out of range", "[Inten
   Alarm *alarm = new Alarm(fakeSensor);
 
   // Act
-  alarm.check();
+  alarm->check();
 
   // Assert
-  REQUIRE( alarm.isAlarmOn() );
+  REQUIRE( alarm->isAlarmOn() );
 }
 
 // TODO-intention: the alarm will be off if the pressure value is normal
