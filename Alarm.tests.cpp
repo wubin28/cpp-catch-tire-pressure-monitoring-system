@@ -17,7 +17,6 @@ TEST_CASE( "the alarm will be on if the pressure value is out of range", "[Inten
   REQUIRE( alarm->isAlarmOn() );
 }
 
-// TODO-intention-working-on: the alarm will be off if the pressure value is normal
 TEST_CASE( "the alarm will be off if the pressure value is normal", "[Intention]" )
 {
   // Arrange
@@ -32,6 +31,21 @@ TEST_CASE( "the alarm will be off if the pressure value is normal", "[Intention]
   REQUIRE_FALSE( alarm->isAlarmOn() );
 }
 
-// TODO-intention: the alarm will still be on if a normal pressure value comes after an out of range one
+// TODO-intention-working-on: the alarm will still be on if a normal pressure value comes after an out of range one
+TEST_CASE( "the alarm will still be on if a normal pressure value comes after an out of range one", "[Intention]" )
+{
+  // Arrange
+  FakeSensor *fakeSensor = new FakeSensor;
+  fakeSensor->fakeNextPressurePsiValue(Alarm::LOW_PRESSURE_THRESHOLD - 1);
+  fakeSensor->fakeNextPressurePsiValueAgain(Alarm::LOW_PRESSURE_THRESHOLD);
+  Alarm *alarm = new Alarm(fakeSensor);
+
+  // Act
+  alarm->check();
+  alarm->check();
+
+  // Assert
+  REQUIRE( alarm->isAlarmOn() );
+}
 
 // TODO-new-feature: the alarm will be off if a normal pressure value comes after an out of range one
