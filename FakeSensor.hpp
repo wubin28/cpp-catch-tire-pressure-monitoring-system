@@ -10,6 +10,7 @@ public:
   double popNextPressurePsiValue() override;
 private:
   double nextPressure;
+  double nextPressureAgain;
 };
 
 #endif /* FAKESENSOR_HPP */
