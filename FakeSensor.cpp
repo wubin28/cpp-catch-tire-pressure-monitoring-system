@@ -9,6 +9,6 @@ void FakeSensor::fakeNextPressurePsiValueAgain(double nextPressure){
 }
 
 double FakeSensor::popNextPressurePsiValue() {
+  methodCallCounter += 1;
   return methodCallCounter > 1 ? this->nextPressureAgain : this->nextPressure;
 }
-

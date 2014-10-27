@@ -9,8 +9,9 @@ public:
   void fakeNextPressurePsiValueAgain(double nextPressure);
   double popNextPressurePsiValue() override;
 private:
-  double nextPressure;
-  double nextPressureAgain;
+  double nextPressure = 0.0;
+  double nextPressureAgain = 0.0;
+  int methodCallCounter = 0;
 };
 
 #endif /* FAKESENSOR_HPP */

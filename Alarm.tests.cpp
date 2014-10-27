@@ -31,7 +31,6 @@ TEST_CASE( "the alarm will be off if the pressure value is normal", "[Intention]
   REQUIRE_FALSE( alarm->isAlarmOn() );
 }
 
-// TODO-intention-working-on: the alarm will still be on if a normal pressure value comes after an out of range one
 TEST_CASE( "the alarm will still be on if a normal pressure value comes after an out of range one", "[Intention]" )
 {
   // Arrange
