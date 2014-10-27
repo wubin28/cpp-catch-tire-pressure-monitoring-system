@@ -4,12 +4,12 @@
 
 TEST_CASE( "Characterization test for method Alarm.isAlarmOn()", "[Characterization]" )
 {
-    // Arrange
-    Alarm alarm;
+  // Arrange
+  Alarm alarm;
 
-    // Act
-    alarm.check();
+  // Act
+  alarm.check();
 
-    // Assert
-    REQUIRE( alarm.isAlarmOn() );
+  // Assert
+  REQUIRE( alarm.isAlarmOn() );
 }

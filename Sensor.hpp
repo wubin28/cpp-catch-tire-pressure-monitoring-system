@@ -5,12 +5,12 @@
 
 class Sensor {
 public:
-	Sensor();
-	static const double OFFSET;
-	double popNextPressurePsiValue();
+  Sensor();
+  static const double OFFSET;
+  double popNextPressurePsiValue();
 
 private:
-	static double samplePressure();
+  static double samplePressure();
 };
 
 #endif /* SENSOR_HPP */

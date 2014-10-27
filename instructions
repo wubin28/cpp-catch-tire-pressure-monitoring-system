@@ -7,14 +7,14 @@
 
 class Alarm {
 public:
-	Alarm();
-	void check();
-	bool isAlarmOn();
+  Alarm();
+  void check();
+  bool isAlarmOn();
 private:
-	static const double LowPressureThreshold;
-	static const double HighPressureThreshold;
-	Sensor* sensor;
-	bool alarmOn;
+  static const double LowPressureThreshold;
+  static const double HighPressureThreshold;
+  Sensor* sensor;
+  bool alarmOn;
 };
 
 #endif /* ALARM_HPP */
@@ -23,20 +23,20 @@ private:
 #include "Alarm.hpp"
 
 void Alarm::check() {
-	double psiPressureValue = sensor->popNextPressurePsiValue();
+  double psiPressureValue = sensor->popNextPressurePsiValue();
 
-	if (psiPressureValue < LowPressureThreshold || HighPressureThreshold < psiPressureValue) {
-		alarmOn = true;
-	}
+  if (psiPressureValue < LowPressureThreshold || HighPressureThreshold < psiPressureValue) {
+    alarmOn = true;
+  }
 }
 
 bool Alarm::isAlarmOn() {
-	return alarmOn;
+  return alarmOn;
 }
 
 Alarm::Alarm() {
-	sensor = new Sensor;
-	alarmOn = false;
+  sensor = new Sensor;
+  alarmOn = false;
 }
 
 const double Alarm::LowPressureThreshold = 17;
@@ -50,12 +50,12 @@ const double Alarm::HighPressureThreshold = 21;
 
 class Sensor {
 public:
-	Sensor();
-	static const double OFFSET;
-	double popNextPressurePsiValue();
+  Sensor();
+  static const double OFFSET;
+  double popNextPressurePsiValue();
 
 private:
-	static double samplePressure();
+  static double samplePressure();
 };
 
 #endif /* SENSOR_HPP */
@@ -64,18 +64,18 @@ private:
 #include "Sensor.hpp"
 
 double Sensor::popNextPressurePsiValue() {
-	double pressureTelemetryValue;
-	pressureTelemetryValue = samplePressure();
+  double pressureTelemetryValue;
+  pressureTelemetryValue = samplePressure();
 
-	return OFFSET + pressureTelemetryValue;
+  return OFFSET + pressureTelemetryValue;
 }
 
 double Sensor::samplePressure() {
-	// placeholder implementation that simulate a real sensor in a real tire
-	static std::default_random_engine engine;
-	static std::uniform_real_distribution<double> uniform(0, 1);
-	double pressureTelemetryValue = 6 * uniform(engine) * uniform(engine);
-	return pressureTelemetryValue;
+  // placeholder implementation that simulate a real sensor in a real tire
+  static std::default_random_engine engine;
+  static std::uniform_real_distribution<double> uniform(0, 1);
+  double pressureTelemetryValue = 6 * uniform(engine) * uniform(engine);
+  return pressureTelemetryValue;
 }
 
 const double Sensor::OFFSET = 16;
