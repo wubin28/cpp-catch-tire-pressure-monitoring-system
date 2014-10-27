@@ -14,7 +14,6 @@ bool Alarm::isAlarmOn() {
 }
 
 Alarm::Alarm() {
-  // TODO-smell-working-on: Depending on a concrete Sensor instance violates the DIP and OCP
   Alarm(new Sensor);
 }
 

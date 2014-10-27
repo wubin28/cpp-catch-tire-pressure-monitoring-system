@@ -3,7 +3,6 @@
 #define CATCH_CONFIG_MAIN
 #include "catch.hpp"  // https://github.com/philsquared/Catch
 
-// TODO-intention-working-on: the alarm will be on if the pressure value is out of range
 TEST_CASE( "the alarm will be on if the pressure value is out of range", "[Intention]" )
 {
   // Arrange
