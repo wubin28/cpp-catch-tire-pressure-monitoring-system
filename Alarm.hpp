@@ -6,6 +6,7 @@
 class Alarm {
 public:
   Alarm();
+  Alarm(Transducer *transducer);
   void check();
   bool isAlarmOn();
   static const double LOW_PRESSURE_THRESHOLD;
