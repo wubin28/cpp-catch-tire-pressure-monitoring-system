@@ -13,6 +13,7 @@ bool Alarm::isAlarmOn() {
 }
 
 Alarm::Alarm() {
+  // TODO-smell: Depending on a concrete Sensor instance violates the DIP and OCP
 	sensor = new Sensor;
 	alarmOn = false;
 }
