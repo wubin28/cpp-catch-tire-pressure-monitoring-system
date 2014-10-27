@@ -2,8 +2,9 @@
 #define SENSOR_HPP
 
 #include <random>
+#include "Transducer.hpp"
 
-class Sensor {
+class Sensor : public Transducer {
 public:
   Sensor();
   static const double OFFSET;
