@@ -3,18 +3,21 @@
 #define CATCH_CONFIG_MAIN
 #include "catch.hpp"  // https://github.com/philsquared/Catch
 
-TEST_CASE( "the alarm will be on if the pressure value is out of range", "[Intention]" )
+SCENARIO( "the status of alarm after the transducer probing pressure values", "[Intention]" )
 {
-  // Arrange
-  FakeSensor *fakeSensor = new FakeSensor;
-  fakeSensor->fakeNextPressurePsiValue(Alarm::LOW_PRESSURE_THRESHOLD - 1);
-  Alarm *alarm = new Alarm(fakeSensor);
+  GIVEN("there is a sensor") {
+    FakeSensor *fakeSensor = new FakeSensor;
+    Alarm *alarm = new Alarm(fakeSensor);
+    
+    WHEN("the sensor probes a pressure value out of range") {
+      fakeSensor->fakeNextPressurePsiValue(Alarm::LOW_PRESSURE_THRESHOLD - 1);
+      alarm->check();
 
-  // Act
-  alarm->check();
-
-  // Assert
-  REQUIRE( alarm->isAlarmOn() );
+      THEN("the alarm will be on") {
+        REQUIRE( alarm->isAlarmOn() );
+      }
+    }
+  }
 }
 
 TEST_CASE( "the alarm will be off if the pressure value is normal", "[Intention]" )
