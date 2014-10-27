@@ -1,9 +1,9 @@
 #include "FakeSensor.hpp"
 
 void FakeSensor::fakeNextPressurePsiValue(double nextPressure){
-
+  this->nextPressure = nextPressure;
 }
 
 double FakeSensor::popNextPressurePsiValue() {
-  return 0.0;
+  return this->nextPressure;
 }
