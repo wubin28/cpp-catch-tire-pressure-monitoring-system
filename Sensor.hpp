@@ -6,9 +6,8 @@
 
 class Sensor : public Transducer {
 public:
-  Sensor();
   static const double OFFSET;
-  double popNextPressurePsiValue();
+  double popNextPressurePsiValue() override;
 
 private:
   static double samplePressure();

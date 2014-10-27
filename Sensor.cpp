@@ -17,5 +17,3 @@ double Sensor::samplePressure() {
 
 const double Sensor::OFFSET = 16;
 
-Sensor::Sensor() {
-}

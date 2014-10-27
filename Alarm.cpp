@@ -2,6 +2,8 @@
 #include "Transducer.hpp"
 
 void Alarm::check() {
+  alarmOn = false;
+
   double psiPressureValue = transducer->popNextPressurePsiValue();
 
   if (psiPressureValue < LOW_PRESSURE_THRESHOLD || HIGH_PRESSURE_THRESHOLD < psiPressureValue) {
