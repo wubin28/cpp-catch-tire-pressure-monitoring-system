@@ -9,7 +9,7 @@ TEST_CASE( "the alarm will be on if the pressure value is out of range", "[Inten
   // Arrange
   FakeSensor *fakeSensor = new FakeSensor;
   fakeSensor->fakeNextPressurePsiValue(Alarm::LOW_PRESSURE_THRESHOLD - 1);
-  Alarm *alarm = new Alarm(fakeSensor;
+  Alarm *alarm = new Alarm(fakeSensor);
 
   // Act
   alarm.check();
