@@ -1,7 +1,9 @@
 #ifndef FAKESENSOR_HPP
 #define FAKESENSOR_HPP
 
-class FakeSensor{
+#include "Transducer.hpp"
+
+class FakeSensor : public Transducer {
 public:
   void fakeNextPressurePsiValue(double nextPressure);
 };

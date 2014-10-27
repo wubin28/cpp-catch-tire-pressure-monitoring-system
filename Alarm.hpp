@@ -2,6 +2,7 @@
 #define ALARM_HPP
 
 #include "Sensor.hpp"
+#include "Transducer.hpp"
 
 class Alarm {
 public:
