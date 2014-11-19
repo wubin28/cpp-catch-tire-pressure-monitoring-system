@@ -14,6 +14,8 @@ private:
 };
 
 class FakeSensor : public Sensor {
+public:
+  FakeSensor(double fakePressureValue);
 };
 
 #endif /* SENSOR_HPP */
