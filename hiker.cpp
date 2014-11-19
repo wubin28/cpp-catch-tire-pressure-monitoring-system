@@ -2,5 +2,5 @@
 
 int answer()
 {
-    return 6 * 9;
+    return 42;
 }
