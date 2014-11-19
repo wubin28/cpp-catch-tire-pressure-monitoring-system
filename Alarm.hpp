@@ -11,6 +11,7 @@ public:
   bool isAlarmOn();
   static const double LOW_PRESSURE_THRESHOLD;
   static const double HIGH_PRESSURE_THRESHOLD;
+  void setSensor(Sensor* sensor);
 private:
   Sensor* sensor;
   bool alarmOn;
