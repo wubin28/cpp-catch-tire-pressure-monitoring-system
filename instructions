@@ -1,0 +1,85 @@
+// Tire Pressure Monitoring System
+// ****** Alarm.hpp
+#ifndef ALARM_HPP
+#define ALARM_HPP
+
+#include "Sensor.hpp"
+
+class Alarm {
+public:
+  Alarm();
+  void check();
+  bool isAlarmOn();
+private:
+  static const double LOW_PRESSURE_THRESHOLD;
+  static const double HIGH_PRESSURE_THRESHOLD;
+  Sensor* sensor;
+  bool alarmOn;
+};
+
+#endif /* ALARM_HPP */
+
+// ****** Alarm.cpp
+#include "Alarm.hpp"
+
+void Alarm::check() {
+  double psiPressureValue = sensor->popNextPressurePsiValue();
+
+  if (psiPressureValue < LOW_PRESSURE_THRESHOLD || HIGH_PRESSURE_THRESHOLD < psiPressureValue) {
+    alarmOn = true;
+  }
+}
+
+bool Alarm::isAlarmOn() {
+  return alarmOn;
+}
+
+Alarm::Alarm() {
+  sensor = new Sensor;
+  alarmOn = false;
+}
+
+const double Alarm::LOW_PRESSURE_THRESHOLD = 17;
+const double Alarm::HIGH_PRESSURE_THRESHOLD = 21;
+
+// ****** Sensor.hpp
+#ifndef SENSOR_HPP
+#define SENSOR_HPP
+
+#include <random>
+
+class Sensor {
+public:
+  Sensor();
+  static const double OFFSET;
+  double popNextPressurePsiValue();
+
+private:
+  static double samplePressure();
+};
+
+#endif /* SENSOR_HPP */
+
+// ****** Sensor.cpp
+#include "Sensor.hpp"
+
+double Sensor::popNextPressurePsiValue() {
+  double pressureTelemetryValue;
+  pressureTelemetryValue = samplePressure();
+
+  return OFFSET + pressureTelemetryValue;
+}
+
+double Sensor::samplePressure() {
+  // placeholder implementation that simulate a real sensor in a real tire
+  static std::default_random_engine engine;
+  static std::uniform_real_distribution<double> uniform(0, 1);
+  double pressureTelemetryValue = 6 * uniform(engine) * uniform(engine);
+  return pressureTelemetryValue;
+}
+
+const double Sensor::OFFSET = 16;
+
+Sensor::Sensor() {
+}
+
