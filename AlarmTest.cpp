@@ -24,7 +24,6 @@ TEST_CASE("a pressure value out of range should raise the alarm") {
   REQUIRE( alarm->isAlarmOn() == true );
 }
 
-// TODO-new-feature-working-on: a normal pressure value after the out of range one should stop the alarm
 TEST_CASE("a normal pressure value after the out of range one should stop the alarm") {
   // Arrange, Act
   Alarm* alarm = new Alarm(new FakeSensor(Alarm::HIGH_PRESSURE_THRESHOLD + 1));

@@ -1,6 +1,7 @@
 #include "Alarm.hpp"
 
 void Alarm::check() {
+  alarmOn = false;
   double psiPressureValue = sensor->popNextPressurePsiValue();
 
   if (psiPressureValue < LOW_PRESSURE_THRESHOLD || HIGH_PRESSURE_THRESHOLD < psiPressureValue) {
