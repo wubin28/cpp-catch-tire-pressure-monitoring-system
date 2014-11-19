@@ -23,3 +23,7 @@ Sensor::Sensor() {
 FakeSensor::FakeSensor(double fakePressureValue) {
   this->fakePressureValue = fakePressureValue;
 }
+
+double FakeSensor::popNextPressurePsiValue() {
+  return this->fakePressureValue;
+}

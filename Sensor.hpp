@@ -7,7 +7,7 @@ class Sensor {
 public:
   Sensor();
   static const double OFFSET;
-  double popNextPressurePsiValue();
+  double virtual popNextPressurePsiValue();
 
 private:
   static double samplePressure();
@@ -16,6 +16,7 @@ private:
 class FakeSensor : public Sensor {
 public:
   FakeSensor(double fakePressureValue);
+  double popNextPressurePsiValue() override;
 private:
   double fakePressureValue;
 };
