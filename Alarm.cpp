@@ -19,5 +19,9 @@ Alarm::Alarm() {
 Alarm::Alarm(Sensor* sensor) : sensor(sensor), alarmOn(false) {
 }
 
+void Alarm::setSensor(Sensor* sensor) {
+  this->sensor = sensor;
+}
+
 const double Alarm::LOW_PRESSURE_THRESHOLD = 17;
 const double Alarm::HIGH_PRESSURE_THRESHOLD = 21;
