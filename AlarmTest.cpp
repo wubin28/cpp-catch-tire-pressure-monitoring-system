@@ -6,7 +6,7 @@
 TEST_CASE( "a normal pressure value should not raise the alarm", "feature" )
 {
   // Arrange
-  Alarm* alarm = new Alarm(new FakeSensor(Alarm.LOW_PRESSURE_THRESHOLD));
+  Alarm* alarm = new Alarm(new FakeSensor(Alarm::LOW_PRESSURE_THRESHOLD));
 
   // Act
   alarm->check();

@@ -8,9 +8,9 @@ public:
   Alarm();
   void check();
   bool isAlarmOn();
-private:
   static const double LOW_PRESSURE_THRESHOLD;
   static const double HIGH_PRESSURE_THRESHOLD;
+private:
   Sensor* sensor;
   bool alarmOn;
 };
