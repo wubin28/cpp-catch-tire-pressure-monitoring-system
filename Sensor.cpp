@@ -19,3 +19,7 @@ const double Sensor::OFFSET = 16;
 
 Sensor::Sensor() {
 }
+
+FakeSensor::FakeSensor(double fakePressureValue) {
+  this->fakePressureValue = fakePressureValue;
+}
