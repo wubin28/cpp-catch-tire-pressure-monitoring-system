@@ -13,4 +13,7 @@ private:
   static double samplePressure();
 };
 
+class FakeSensor : public Sensor {
+};
+
 #endif /* SENSOR_HPP */
