@@ -13,8 +13,10 @@ bool Alarm::isAlarmOn() {
 }
 
 Alarm::Alarm() {
-  sensor = new Sensor;
-  alarmOn = false;
+  Alarm(new Sensor());
+}
+
+Alarm::Alarm(Sensor* sensor) : sensor(sensor), alarmOn(false) {
 }
 
 const double Alarm::LOW_PRESSURE_THRESHOLD = 17;
